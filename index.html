@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Form Project Baru</h1>
+
+    <form id="projectForm">
+        <!-- Data Konsumen -->
+        <div class="form-group-konsumen">
+            <div class="nama-konsumen">
+                <label>Nama Konsumen</label>
+                <input type="text" id="nama_konsumen" required placeholder="masukkan nama konsumen">
+            </div>
+
+            <div class="hp-konsumen">
+                <label>Nomor HP Konsumen</label>
+                <input type="tel" id="nomor_hp_konsumen" required placeholder="masukkan nomor hp konsumen">
+            </div>
+        </div>
+
+
+
+        <!-- Detail Project -->
+        <div class="form-group-project">
+            <div class="type-project">
+                <label>Jenis Project</label>
+                <select id="jenis_project" required>
+                    <option value="">-- Pilih Jenis Project--</option>
+                    <option value="Pajak Tahunan">Pajak Tahunan</option>
+                    <option value="Pajak 5 Tahunan">Pajak 5 Tahunan</option>
+                    <option value="Balik Nama">Balik Nama</option>
+                    <option value="STNK Hilang">STNK Hilang</option>
+                </select>
+            </div>
+
+            <div class="data-project">
+                <label>Nomor Polisi</label>
+                <input type="text" id="nomor_polisi" required placeholder="masukkan nomor polisi">
+            </div>
+        </div>
+
+
+        <!-- Vendor Mitra -->
+        <div class="form-group-mitra">
+            <div class="nama-mitra">
+                <label>Nama Mitra</label>
+                <input type="text" id="nama_mitra" required placeholder="masukkan nama mitra">
+            </div>
+
+            <div class="hp-mitra">
+                <label>Nomor HP Mitra</label>
+                <input type="tel" id="nomor_hp_mitra" required placeholder="masukkan nomor hp mitra">
+            </div>
+        </div>
+
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+[
+    {
+        "id_konsumen": "",
+        "nama_konsumen": "",
+        "nomor_hp": "",
+        "daftar_project": [
+            {
+                "id_project": "",
+                "tanggal_masuk": "",
+                "jenis_project": "",
+                "nomor_polisi": "",
+                "vendor_mitra": {
+                    "nama_mitra": "",
+                    "nomor_hp_mitra": ""
+                },
+                "biaya": {
+                    "total_biaya": 0,
+                    "dp_dibayar": 0,
+                    "kekurangan_biaya": 0
+                },
+                "berkas_ditinggal": {
+                    "bpkb_asli": false,
+                    "stnk_asli": false,
+                    "ktp_asli": false
+                },
+                "status_proses": "",
+                "catatan": ""
+            }
+        ]
+    }
+]
