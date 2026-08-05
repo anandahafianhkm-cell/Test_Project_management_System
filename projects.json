@@ -27,5 +27,37 @@
                 "catatan": ""
             }
         ]
+    },
+    {
+        "id_konsumen": "K-2546",
+        "nama_konsumen": "Test",
+        "nomor_hp": "0000",
+        "daftar_project": [
+            {
+                "id_project": "PRJ-5093",
+                "tanggal_masuk": "2026-08-05",
+                "jenis_project": "Pajak Tahunan",
+                "nomor_polisi": "AB 1111 AB",
+                "vendor_mitra": {
+                    "nama_mitra": "Test",
+                    "nomor_hp_mitra": "00000"
+                },
+                "biaya": {
+                    "total_biaya": 12343545,
+                    "dp_dibayar": 1234,
+                    "kekurangan_biaya": 12342311
+                },
+                "berkas_ditinggal": {
+                    "bpkb_asli": true,
+                    "stnk_asli": false,
+                    "ktp_asli": false,
+                    "bpkb_fc": false,
+                    "stnk_fc": true,
+                    "ktp_fc": false
+                },
+                "status_proses": "Test",
+                "catatan": "Test"
+            }
+        ]
     }
 ]
