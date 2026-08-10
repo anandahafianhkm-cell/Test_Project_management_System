@@ -1,32 +1,83 @@
 * {
+    box-sizing: border-box;
     margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif';
+
 }
 
-.btn-project {
-    border: 1px solid black;
-    max-width: 500px;
+body {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f4f6f9;
+    color: #333;
 }
 
-.btn-project h1 {
-    padding: 8px 16px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-weight: bold;
+/* SIDEBAR KIRI */
+.sidebar {
+    width: 360px;
+    background-color: #ffffff;
+    border-right: 1px solid #e0e6ed;
+    padding: 24px 16px;
+    height: 100vh;
+    overflow-y: auto;
 }
 
+.stnk-project-spesialized h1,
+.sim-project-spesialized h1 {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #6c757d;
+    margin-bottom: 12px;
+}
 
-/* Styling Daftar Project */
+.sim-project-spesialized {
+    margin-top: 24px;
+}
+
 .list-project {
     list-style: none;
-    padding-left: 10px;
+    padding: 0;
 }
+
 .item-project {
     display: flex;
-    border: 1px solid black;
     align-items: center;
     gap: 10px;
+    padding: 10px 14px;
+    margin-bottom: 6px;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: #333;
     cursor: pointer;
-    padding: 5px;
+    transition: all 0.2s ease;
 }
+
+.item-project:hover {
+    background-color: #e7f1ff;
+    border-color: #b6d4fe;
+    color: #0d6efd;
+    transform: translateX(4px);
+}
+
+.item-project i {
+    font-size: 0.8rem;
+    color: #0d6efd;
+}
+
+/* Area WorkSpace Kanan */
+.main-content {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
