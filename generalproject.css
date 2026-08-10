@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+}
+
+.btn-project {
+    border: 1px solid black;
+    max-width: 500px;
+}
+
+.btn-project h1 {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+
+/* Styling Daftar Project */
+.list-project {
+    list-style: none;
+    padding-left: 10px;
+}
+.item-project {
+    display: flex;
+    border: 1px solid black;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 5px;
+}
