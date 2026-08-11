@@ -4,10 +4,10 @@ const jendelaForm = document.getElementById('formFrame');
 semuaMenu.forEach(menu => {
     menu.addEventListener('click', () => {
 
-        const formPajakTahunan = menu.getAttribute('data-form');
+        const namaForm = menu.getAttribute('data-form');
 
-        if (formPajakTahunan) {
-            jendelaForm.src = formPajakTahunan;
+        if (namaForm) {
+            jendelaForm.src = namaForm;
         }
     })
 })
