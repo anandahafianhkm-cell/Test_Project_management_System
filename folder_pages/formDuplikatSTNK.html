@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../folder_styling/formPajak5Tahunan.css">
+    <title>Form Pajak 5 Tahunan</title>
+</head>
+
+<body>
+    <div class="form-container">
+
+        <!-- KOP SURAT / HEADER NOTA -->
+        <div class="header-nota">
+            <div class="brand-info">
+                <h1>BIRO JASA SADIDA</h1>
+                <p class="subtitle">Membuat Pengurusan STNK, Mutasi, SIM, DLL</p>
+                <p class="address">Jalan Magelang KM 12</p>
+            </div>
+            <div class="form-group-header">
+                <label for="nama_konsumen">Nama Konsumen</label>
+                <input type="text" id="nama_konsumen" placeholder="Masukkan nama konsumen" required>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- FORM UTAMA -->
+        <form id="formPajakTahunan">
+            <div class="form-section-title">
+                <h4>PENGURUSAN PAJAK 5 TAHUNAN</h4>
+                <img src="../Images/plat_nomor_logo.png">
+            </div>
+
+            <!-- TANGGAL & PLAT NOMOR -->
+            <div class="grid-2-col">
+                <div class="form-group">
+                    <label for="tanggal_masuk">Tanggal Masuk</label>
+                    <input type="date" id="tanggal_masuk" required>
+                </div> 
+                <div class="form-group">
+                    <label for="nomor_polisi">Nomor Polisi</label>
+                    <input type="text" id="nomor_polisi" required placeholder="Contoh: AB 1234 XX">
+                </div>
+            </div>
+
+            <!-- RINCIAN KEUANGAN -->
+            <div class="card-section">
+                <label class="section-label">Rincian Keuangan</label>
+                <div class="grid-3-col">
+                    <div class="form-group">
+                        <label for="total_biaya">Total Biaya (Rp)</label>
+                        <input type="number" id="total_biaya" min="0" value="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="dp_dibayar">DP Dibayar (Rp)</label>
+                        <input type="number" id="dp_dibayar" min="0" value="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="kekurangan_biaya">Kekurangan Biaya (Rp)</label>
+                        <input type="number" id="kekurangan_biaya" value="0" readonly class="readonly-input">
+                    </div>
+                </div>
+            </div>
+
+            <!-- BERKAS DITINGGAL -->
+            <div class="card-section">
+                <label class="section-label">Berkas Yang Ditinggal</label>
+                <div class="checkbox-grid">
+                    <label class="checkbox-label"><input type="checkbox" id="bpkb-asli"> BPKB ASLI</label>
+                    <label class="checkbox-label"><input type="checkbox" id="stnk-asli"> STNK ASLI</label>
+                    <label class="checkbox-label"><input type="checkbox" id="ktp-asli"> KTP ASLI</label>
+                    <label class="checkbox-label"><input type="checkbox" id="bpkb-fc"> BPKB FOTOCOPY</label>
+                    <label class="checkbox-label"><input type="checkbox" id="stnk-fc"> STNK FOTOCOPY</label>
+                    <label class="checkbox-label"><input type="checkbox" id="ktp-fc"> KTP FOTOCOPY</label>
+                </div>
+            </div>
+
+            <!-- Catatan -->
+             <div class="noted">
+                <label>Catatan</label>
+                <textarea id="catatan" rows="5" placeholder="tulis catatan khusus jika ada ...."></textarea>
+            </div>
+
+            <!-- TOMBOL SIMPAN -->
+            <button type="submit" class="btn-submit">Simpan & Proses Project</button>
+        </form>
+
+    </div>
+
+    <script>
+        // Hitung otomatis Sisa Biaya saat diisi
+        const totalInput = document.getElementById('total_biaya');
+        const dpInput = document.getElementById('dp_dibayar');
+        const sisaInput = document.getElementById('kekurangan_biaya');
+
+        function hitungSisa() {
+            const total = parseFloat(totalInput.value) || 0;
+            const dp = parseFloat(dpInput.value) || 0;
+            sisaInput.value = total - dp;
+        }
+
+        totalInput.addEventListener('input', hitungSisa);
+        dpInput.addEventListener('input', hitungSisa);
+    </script>
+</body>
+
+</html>
+</body>
+</html>
