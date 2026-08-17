@@ -82,10 +82,26 @@ body {
 }
 
 .grid-2-col {
-    display: grid;
+    display: flex;
+    justify-content: space-between;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
     margin-bottom: 16px;
+}
+
+.consument-section {
+    gap: 20px;
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.consument-grid-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .grid-3-col {
