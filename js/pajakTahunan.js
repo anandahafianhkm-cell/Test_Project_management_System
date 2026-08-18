@@ -7,9 +7,9 @@ form.addEventListener('submit', function (event) {
     const namaKonsumen = document.getElementById('nama_konsumen').value;
     const tanggalMasuk = document.getElementById('tanggal_masuk').value;
     const nomorPolisi = document.getElementById('nomor_polisi').value;
-    const totalBiaya = document.getElementById('total_biaya').value;
-    const DP = document.getElementById('dp_dibayar').value;
-    const kekuranganBiaya = document.getElementById('kekurangan_biaya').value;
+    const totalBiaya = parseFloat(document.getElementById('total_biaya').value) || 0;
+    const DP = parseFloat(document.getElementById('dp_dibayar').value) || 0;
+    const kekuranganBiaya = parseFloat(document.getElementById('kekurangan_biaya').value) || 0;
     const kelengkapanBerkas = {
         "bpkb_asli": document.getElementById('bpkb-asli').checked,
         "stnk_asli": document.getElementById('stnk-asli').checked,
@@ -18,7 +18,7 @@ form.addEventListener('submit', function (event) {
         "stnk_fc": document.getElementById('stnk-fc').checked,
         "ktp_fc": document.getElementById('ktp-fc').checked
     }
-    const mitraPengerjaan = document.getElementById('mitra');
+    const mitraPengerjaan = document.getElementById('mitra').value;
     const catatan = document.getElementById('catatan').value;
 
     const dataBerkas = {
@@ -26,7 +26,7 @@ form.addEventListener('submit', function (event) {
         tanggal_masuk: tanggalMasuk,
         nomor_polisi: nomorPolisi,
         total_biaya: totalBiaya,
-        DP: DP,
+        dp_dibayar: DP,
         kekurangan_biaya: kekuranganBiaya,
         kelengkapan_berkas: kelengkapanBerkas,
         mitra_pengerjaan: mitraPengerjaan,
@@ -34,7 +34,7 @@ form.addEventListener('submit', function (event) {
     };
 
     const dataJSON = JSON.stringify(dataBerkas);
-    
+
     console.log(dataBerkas);
     console.log(dataJSON);
 })
