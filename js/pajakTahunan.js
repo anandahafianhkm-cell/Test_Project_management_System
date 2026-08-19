@@ -1,10 +1,15 @@
 const form = document.getElementById('formPajakTahunan');
 
-form.addEventListener('submit', function (event) {
+form.addEventListener('submit', async function (event) {
 
     event.preventDefault();
 
     const namaKonsumen = document.getElementById('nama_konsumen').value;
+
+    if (!namaKonsumen) {
+        alert("Nama Konsumen Wajib Diisi");
+        return;
+    }
     const tanggalMasuk = document.getElementById('tanggal_masuk').value;
     const nomorPolisi = document.getElementById('nomor_polisi').value;
     const totalBiaya = parseFloat(document.getElementById('total_biaya').value) || 0;
@@ -33,8 +38,26 @@ form.addEventListener('submit', function (event) {
         catatan: catatan
     };
 
-    const dataJSON = JSON.stringify(dataBerkas);
+    try {
+        const response = await fetch('../folder_php/simpan_pajak_tahunan.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dataBerkas)
+        });
 
-    console.log(dataBerkas);
-    console.log(dataJSON);
+        const result = await response.json();
+
+        if (result.status === 'success') {
+            alert(result.message);
+            form.reset();
+            document.getElementById('nama_konsumen').value = ''
+        } else {
+            alert("Gagal: " + result.message);
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        alert("Terjadi kesalahan koneksi ke server");
+    }  
 })
