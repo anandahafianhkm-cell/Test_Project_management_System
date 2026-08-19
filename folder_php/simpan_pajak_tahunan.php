@@ -7,6 +7,7 @@ $data = json_decode($json, true);
 
 if ($data) {
     $nama       = $conn->real_escape_string($data['nama_konsumen']);
+    $nomor_hp   = $conn->real_escape_string($data['nomor_hp_konsumen']);
     $tanggal    = $conn->real_escape_string($data['tanggal_masuk']);
     $plat       = $conn->real_escape_string($data['nomor_polisi']);
     $total      = floatval($data['total_biaya']);
@@ -17,9 +18,9 @@ if ($data) {
     $catatan    = $conn->real_escape_string($data['catatan']);
 
     $sql = "INSERT INTO pajak_tahunan
-            (nama_konsumen, tanggal_masuk, nomor_polisi, total_biaya, dp_dibayar, kekurangan_biaya, kelengkapan_berkas, mitra_pengerjaan, catatan)
+            (nama_konsumen, nomor_hp_konsumen, tanggal_masuk, nomor_polisi, total_biaya, dp_dibayar, kekurangan_biaya, kelengkapan_berkas, mitra_pengerjaan, catatan)
             VALUES
-            ('$nama', '$tanggal', '$plat', '$total', '$dp', '$kekurangan', '$berkas', '$mitra', '$catatan')";
+            ('$nama', '$nomor_hp', '$tanggal', '$plat', '$total', '$dp', '$kekurangan', '$berkas', '$mitra', '$catatan')";
 
     if ($conn->query($sql) === TRUE) {
         echo json_encode(["status" => "success", "message" => "Data Pajak Tahunan Berhasil Disimpan"]);

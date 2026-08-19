@@ -10,6 +10,7 @@ form.addEventListener('submit', async function (event) {
         alert("Nama Konsumen Wajib Diisi");
         return;
     }
+    const nomorHpKonsumen = document.getElementById('nomor_hp_konsumen').value;
     const tanggalMasuk = document.getElementById('tanggal_masuk').value;
     const nomorPolisi = document.getElementById('nomor_polisi').value;
     const totalBiaya = parseFloat(document.getElementById('total_biaya').value) || 0;
@@ -28,6 +29,7 @@ form.addEventListener('submit', async function (event) {
 
     const dataBerkas = {
         nama_konsumen: namaKonsumen,
+        nomor_hp_konsumen: nomorHpKonsumen,
         tanggal_masuk: tanggalMasuk,
         nomor_polisi: nomorPolisi,
         total_biaya: totalBiaya,
@@ -52,7 +54,8 @@ form.addEventListener('submit', async function (event) {
         if (result.status === 'success') {
             alert(result.message);
             form.reset();
-            document.getElementById('nama_konsumen').value = ''
+            document.getElementById('nama_konsumen').value = '';
+            document.getElementById('nomor_hp_konsumen').value = '';
         } else {
             alert("Gagal: " + result.message);
         }
