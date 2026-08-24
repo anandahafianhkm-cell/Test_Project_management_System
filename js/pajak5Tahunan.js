@@ -26,4 +26,16 @@ form.addEventListener('submit', function (event) {
 
     const mitraPengerjaan = document.getElementById('mitra').value;
     const catatan = document.getElementById('catatan').value;
+
+    const dataBerkas5Tahunan = {
+        nama_konsumen: namaKonsumen,
+        tanggal_masuk: tanggalMasuk,
+        nomor_polisi: nomorPolisi,
+        total_biaya: totalBiaya,
+        dp_dibayar: DP,
+        kekurangan_biaya: kekuranganBiaya,
+        kelengkapan_berkas: kelengkapanBerkas,
+        mitra_pengerjan: mitraPengerjaan,
+        catatan: catatan
+    };
 })
