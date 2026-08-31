@@ -1,6 +1,6 @@
 const form = document.getElementById('formPajak5Tahunan');
 
-form.addEventListener('submit', function (event) {
+form.addEventListener('submit', async function (event) {
     event.preventDefault();
 
     const namaKonsumen = document.getElementById('nama_konsumen').value;
