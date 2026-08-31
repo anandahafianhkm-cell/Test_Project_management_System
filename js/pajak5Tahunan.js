@@ -9,7 +9,7 @@ form.addEventListener('submit', function (event) {
         alert("Nama Konsumen Wajib Diisi");
         return;
     }
-
+    const nomorHpKonsumen = document.getElementById('nomor_hp_konsumen').value;
     const tanggalMasuk = document.getElementById('tanggal_masuk').value;
     const nomorPolisi = document.getElementById('nomor_polisi').value;
     const totalBiaya = parseFloat(document.getElementById('total_biaya').value) || 0;
@@ -29,6 +29,7 @@ form.addEventListener('submit', function (event) {
 
     const dataBerkas5Tahunan = {
         nama_konsumen: namaKonsumen,
+        nomor_hp_konsumen: nomorHpKonsumen,
         tanggal_masuk: tanggalMasuk,
         nomor_polisi: nomorPolisi,
         total_biaya: totalBiaya,
