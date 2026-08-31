@@ -38,4 +38,28 @@ form.addEventListener('submit', function (event) {
         mitra_pengerjan: mitraPengerjaan,
         catatan: catatan
     };
+
+    try {
+        const response = await fetch('../folder_php/simpan_pajak_5tahunan.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dataBerkas5Tahunan)
+        });
+
+        const result = await response.json();
+
+        if (result.status === 'success') {
+            alert(result.message);
+            form.reset();
+            document.getElementById('nama_konsumen').value = '';
+            document.getElementById('nomor_hp_konsumen').value = '';
+        } else {
+            alert("Gagal: " + result.message);
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        alert("Terjadi kesalahan koneksi ke server");
+    }
 })
