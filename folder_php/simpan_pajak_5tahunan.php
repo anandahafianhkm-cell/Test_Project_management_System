@@ -17,7 +17,7 @@ if ($data) {
     $total = $conn->real_escape_string($data['total_biaya']);
     $dp = $conn->real_escape_string($data['dp_dibayar']);
     $kekurangan = $conn->real_escape_string(($data['kekurangan_biaya']));
-    $berkas = $conn->real_escape_string($data['kelengkapan_berkas']);
+    $berkas = json_encode($data['kelengkapan_berkas']);
     $mitra = $conn->real_escape_string($data['mitra_pengerjaan']);
     $catatan = $conn->real_escape_string($data['catatan']);
 
