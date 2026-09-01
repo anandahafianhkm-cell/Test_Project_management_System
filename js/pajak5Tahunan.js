@@ -36,7 +36,7 @@ form.addEventListener('submit', async function (event) {
         dp_dibayar: DP,
         kekurangan_biaya: kekuranganBiaya,
         kelengkapan_berkas: kelengkapanBerkas,
-        mitra_pengerjan: mitraPengerjaan,
+        mitra_pengerjaan: mitraPengerjaan,
         catatan: catatan
     };
 
