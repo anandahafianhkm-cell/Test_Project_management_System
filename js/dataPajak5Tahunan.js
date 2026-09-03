@@ -1,12 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Ambil elemen tbody dari HTML berdasarkan ID
-    const tabelBody = document.getElementById('tabel_pajak_body');
+    const tabelBody = document.getElementById('tabel_pajak_5tahunan_body');
 
-    // 2. Buat fungsi untuk mengambil data dari PHP
-    async function muatDataPajak() {
+    async function muatDataPajak5Tahunan() {
         try {
-            // Panggil API backend PHP
-            const response = await fetch('../folder_php/get_pajak_tahunan.php');
+            // Panggil backend PHP untuk Pajak 5 Tahunan
+            const response = await fetch('../folder_php/get_pajak_5tahunan.php');
             
             if (!response.ok) {
                 throw new Error('Gagal mengambil data dari server');
@@ -14,18 +12,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const dataPajak = await response.json();
 
-            // Kosongkan tabel terlebih dahulu
             tabelBody.innerHTML = '';
 
-            // Jika data kosong di database
             if (dataPajak.length === 0) {
-                tabelBody.innerHTML = `<tr><td colspan="11" style="text-align:center;">Belum ada data transaksi.</td></tr>`;
+                tabelBody.innerHTML = `<tr><td colspan="11" style="text-align:center;">Belum ada data transaksi Pajak 5 Tahunan.</td></tr>`;
                 return;
             }
 
-            // 3. Looping data array dari PHP ke dalam baris tabel (HTML)
             dataPajak.forEach((item, index) => {
-                // Parse data berkas (JSON String) jika berupa array
+                // Formatting data berkas (JSON array to string)
                 let daftarBerkas = '-';
                 try {
                     const berkasArr = typeof item.kelengkapan_berkas === 'string' 
@@ -39,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     daftarBerkas = item.kelengkapan_berkas || '-';
                 }
 
-                // Buat baris <tr>
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
                     <td>${index + 1}</td>
@@ -55,7 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     <td>${item.catatan || '-'}</td>
                 `;
 
-                // Masukkan baris ke dalam tbody
                 tabelBody.appendChild(tr);
             });
 
@@ -65,6 +58,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Jalankan fungsi
-    muatDataPajak();
+    muatDataPajak5Tahunan();
 });
