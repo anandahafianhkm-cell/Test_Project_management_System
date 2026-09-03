@@ -8,6 +8,9 @@ semuaMenu.forEach(menu => {
 
         if (namaForm) {
             jendelaForm.src = namaForm;
+
+            semuaMenu.forEach(m => m.classList.remove('aktif'));
+            menu.classList.add('aktif');
         }
-    })
-})
+    });
+});
