@@ -17,9 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
             // Kosongkan tabel terlebih dahulu
             tabelBody.innerHTML = '';
 
-            // Jika data kosong di database
+            // Jika data kosong di database (colspan diubah jadi 12)
             if (dataPajak.length === 0) {
-                tabelBody.innerHTML = `<tr><td colspan="11" style="text-align:center;">Belum ada data transaksi.</td></tr>`;
+                tabelBody.innerHTML = `<tr><td colspan="12" style="text-align:center;">Belum ada data transaksi.</td></tr>`;
                 return;
             }
 
@@ -53,6 +53,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     <td>${daftarBerkas}</td>
                     <td>${item.mitra_pengerjaan}</td>
                     <td>${item.catatan || '-'}</td>
+                    <td>
+                        <button class="btn-hapus" onclick="hapusData(${item.id})">
+                            <i class="fa-solid fa-trash"></i> Hapus
+                        </button>
+                    </td>
                 `;
 
                 // Masukkan baris ke dalam tbody
@@ -61,10 +66,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
         } catch (error) {
             console.error('Error:', error);
-            tabelBody.innerHTML = `<tr><td colspan="11" style="text-align:center; color:red;">Gagal memuat data: ${error.message}</td></tr>`;
+            // colspan diubah jadi 12
+            tabelBody.innerHTML = `<tr><td colspan="12" style="text-align:center; color:red;">Gagal memuat data: ${error.message}</td></tr>`;
         }
     }
 
     // Jalankan fungsi
     muatDataPajak();
 });
+
+// Fungsi Hapus dipanggil secara global oleh event onclick HTML
+async function hapusData(id) {
+    const konfirmasi = confirm("Apakah Anda yakin ingin menghapus data transaksi ini?");
+    
+    if (!konfirmasi) return;
+
+    try {
+        const response = await fetch('../folder_php/hapus_pajak_tahunan.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id: id })
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.status === 'success') {
+            alert('Data berhasil dihapus!');
+            location.reload(); 
+        } else {
+            alert('Gagal menghapus data: ' + result.message);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Terjadi kesalahan jaringan.');
+    }
+}
