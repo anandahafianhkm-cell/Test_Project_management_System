@@ -1,19 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../folder_styling/formDuplikatSTNK.css">
-    <title>Document</title>
-</head>
-<body>
-    <!DOCTYPE html>
 <html lang="id">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Pajak 5 Tahunan</title>
+    <link rel="stylesheet" href="../folder_styling/formDuplikatSTNK.css">
+    <title>Form Duplikat STNK</title>
 </head>
 
 <body>
@@ -35,18 +27,22 @@
         <hr class="divider">
 
         <!-- FORM UTAMA -->
-        <form id="formPajakTahunan">
+        <form id="form_duplikat_stnk">
             <div class="form-section-title">
                 <h4>PENGURUSAN DUPLIKAT STNK</h4>
-                <img SRC="../Images/duplikat.jpg">
+                <img src="../Images/duplikat.jpg" alt="Duplikat STNK">
             </div>
 
-            <!-- TANGGAL & PLAT NOMOR -->
-            <div class="grid-2-col">
+            <!-- TANGGAL, NOMOR HP & PLAT NOMOR -->
+            <div class="grid-3-col">
                 <div class="form-group">
                     <label for="tanggal_masuk">Tanggal Masuk</label>
                     <input type="date" id="tanggal_masuk" required>
                 </div> 
+                <div class="form-group">
+                    <label for="nomor_hp_konsumen">Nomor HP / WhatsApp</label>
+                    <input type="text" id="nomor_hp_konsumen" required placeholder="Contoh: 08123456789">
+                </div>
                 <div class="form-group">
                     <label for="nomor_polisi">Nomor Polisi</label>
                     <input type="text" id="nomor_polisi" required placeholder="Contoh: AB 1234 XX">
@@ -76,19 +72,25 @@
             <div class="card-section">
                 <label class="section-label">Berkas Yang Ditinggal</label>
                 <div class="checkbox-grid">
-                    <label class="checkbox-label"><input type="checkbox" id="bpkb-asli"> BPKB ASLI</label>
-                    <label class="checkbox-label"><input type="checkbox" id="stnk-asli"> STNK ASLI</label>
-                    <label class="checkbox-label"><input type="checkbox" id="ktp-asli"> KTP ASLI</label>
-                    <label class="checkbox-label"><input type="checkbox" id="bpkb-fc"> BPKB FOTOCOPY</label>
-                    <label class="checkbox-label"><input type="checkbox" id="stnk-fc"> STNK FOTOCOPY</label>
-                    <label class="checkbox-label"><input type="checkbox" id="ktp-fc"> KTP FOTOCOPY</label>
+                    <label class="checkbox-label"><input type="checkbox" name="kelengkapan_berkas" value="BPKB ASLI"> BPKB ASLI</label>
+                    <label class="checkbox-label"><input type="checkbox" name="kelengkapan_berkas" value="STNK ASLI"> STNK ASLI</label>
+                    <label class="checkbox-label"><input type="checkbox" name="kelengkapan_berkas" value="KTP ASLI"> KTP ASLI</label>
+                    <label class="checkbox-label"><input type="checkbox" name="kelengkapan_berkas" value="BPKB FOTOCOPY"> BPKB FOTOCOPY</label>
+                    <label class="checkbox-label"><input type="checkbox" name="kelengkapan_berkas" value="STNK FOTOCOPY"> STNK FOTOCOPY</label>
+                    <label class="checkbox-label"><input type="checkbox" name="kelengkapan_berkas" value="KTP FOTOCOPY"> KTP FOTOCOPY</label>
                 </div>
             </div>
 
-            <!-- Catatan -->
-             <div class="noted">
-                <label>Catatan</label>
-                <textarea id="catatan" rows="5" placeholder="tulis catatan khusus jika ada ...."></textarea>
+            <!-- MITRA PENGERJAAN & CATATAN -->
+            <div class="grid-2-col">
+                <div class="form-group">
+                    <label for="mitra_pengerjaan">Mitra Pengerjaan / Lokasi Samsat</label>
+                    <input type="text" id="mitra_pengerjaan" placeholder="Contoh: Samsat Sleman">
+                </div>
+                <div class="noted">
+                    <label for="catatan">Catatan</label>
+                    <textarea id="catatan" rows="3" placeholder="Tulis catatan khusus jika ada..."></textarea>
+                </div>
             </div>
 
             <!-- TOMBOL SIMPAN -->
@@ -97,6 +99,7 @@
 
     </div>
 
+    <!-- SCRIPT LOGIKA FORM -->
     <script>
         // Hitung otomatis Sisa Biaya saat diisi
         const totalInput = document.getElementById('total_biaya');
@@ -113,8 +116,8 @@
         dpInput.addEventListener('input', hitungSisa);
     </script>
 
+    <!-- INTEGRASI KE BACKEND VIA JAVASCRIPT -->
+    <script src="../folder_js/duplikatSTNK.js"></script>
 </body>
 
-</html>
-</body>
 </html>
